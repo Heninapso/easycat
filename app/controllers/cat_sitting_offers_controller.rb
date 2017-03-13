@@ -24,7 +24,7 @@ class CatSittingOffersController < ApplicationController
 
   def destroy
     @catsittingoffer.destroy
-
+    redirect_to cat_sitting_offers_path, notice: 'Your cat sitting offer has been deleted'
   end
 
 
