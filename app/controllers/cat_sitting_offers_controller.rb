@@ -1,0 +1,2 @@
+class CatSittingOffersController < ApplicationController
+end
