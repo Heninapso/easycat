@@ -1,4 +1,5 @@
 class CatSittingOffer < ApplicationRecord
+  has_attachments :photos, maximum: 3
   belongs_to :user
   belongs_to :customer
   has_many :bookings
