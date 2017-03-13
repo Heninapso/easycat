@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="card">
+        <div class="card-title"><%= @catsittingoffer.title %></div>
+        <div class="card-description"><%= @catsittingoffer.localisation %></div>
+        <div class="card-description"><%= @catsittingoffer.description %></div>
+        <div class="card-picture">
+          <% @catsittingoffer.photos.each do |photo| %>
+            <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+          <% end %>
+        </div>
+        <%= link_to 'Delete your add?', cat_sitting_offer_path(@catsittingoffer), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path) %>
+</div>

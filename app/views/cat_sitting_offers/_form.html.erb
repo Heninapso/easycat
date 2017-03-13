@@ -1,0 +1,7 @@
+<%= simple_form_for @catsittingoffer do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :localisation %>
+  <%= f.input :photos, as: :attachinary %>
+  <%= f.button :submit %>
+<% end %>
