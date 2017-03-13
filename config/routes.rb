@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'customers/show'
 
   devise_for :users
   root to: 'cat_sitting_offers#index'
