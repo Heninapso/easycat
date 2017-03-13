@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+cat_sitting_offers.destroy_all
+cat_sitting_offers = CatSittingOffer.create([
+  {title:"Julie loves cat" , localisation: "Paris", description:"Love cat since my childhood"},
+  {title:"Carole keeps all cats in Dublin" , localisation: "Paris", description:"I have 3 cats, they need some friends to play!"}
+])

@@ -1,0 +1,13 @@
+<h1>Welcome to EasyCat</h1>
+<h2>Find someone to take care of your cat</h2>
+
+<div class ="container">
+  <% @cat_sitting_offers.each do |cat_sitting_offer| %>
+    <h3>
+      <%= cat_sitting_offer.title %>
+    </h3>
+    <p>
+      <%= cat_sitting_offer.localisation %>
+    </p>
+  <% end %>
+</div>
