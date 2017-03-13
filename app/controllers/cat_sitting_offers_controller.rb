@@ -43,4 +43,5 @@ class CatSittingOffersController < ApplicationController
   def cat_sitting_offer_params
     params.require(:cat_sitting_offer).permit(:title, :localisation, :description, :status, photos: [])
   end
-  
+
+end
