@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
   root to: 'cat_sitting_offers#index'
@@ -6,6 +7,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:update]
-  resources :users, only: [:show]
+  resources :customers, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

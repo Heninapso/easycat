@@ -1,3 +1,15 @@
-@import "alert";
+@import "alerts";
 @import "avatars";
 @import "badges";
+@import "cards";
+
+#dashboard-category {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#dashboard-category:hover {
+  background-color: #F3F3F3;
+  border-radius: 5px;
+  padding: 5px;
+}

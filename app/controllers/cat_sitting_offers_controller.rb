@@ -1,8 +1,14 @@
 class CatSittingOffersController < ApplicationController
 
-  before_action :find_cso, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_cat_sitting_offer, only: [:show, :update, :destroy]
+
+  def index
+    @cat_sitting_offers = CatSittingOffer.all
+  end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -30,12 +36,11 @@ class CatSittingOffersController < ApplicationController
 
   private
 
-  def find_cso
+  def set_cat_sitting_offer
     @catsittingoffer = CatSittingOffer.find(params[:id])
   end
 
-  def catsittingoffer_params
+  def cat_sitting_offer_params
     params.require(:cat_sitting_offer).permit(:title, :localisation, :description, :status, photos: [])
   end
-
-end
+  

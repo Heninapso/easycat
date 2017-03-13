@@ -1,4 +1,6 @@
+
 <div class="container">
+  <h1>More about <%= @cat_sitting_offer.title %> ad of <%= @cat_sitting_offer.user %></h1>
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="card">
@@ -25,10 +27,20 @@
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
-        <%= link_to 'Delete your add?', cat_sitting_offer_path(@catsittingoffer), method: :delete, data: { confirm: 'Are you sure?' } %>
+        
       </div>
     </div>
+    
   </div>
 
+  <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book now", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Delete your add?', cat_sitting_offer_path(@catsittingoffer), method: :delete, data: { confirm: 'Are you sure?' } %>
+
   <%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path) %>
+
 </div>

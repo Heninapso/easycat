@@ -1,0 +1,23 @@
+<h1>Welcome to EasyCat</h1>
+<h2>Find someone to take care of your cat</h2>
+
+<div class ="container">
+  <% @cat_sitting_offers.each do |cat_sitting_offer| %>
+    <div class="col-xs-12 col-md-4">
+      <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
+        <div class="card-description">
+          <h2>
+            <%= cat_sitting_offer.title %>
+          </h2>
+          <p>
+            <%= cat_sitting_offer.localisation %>
+          </p>
+        </div>
+        <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
+        <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
