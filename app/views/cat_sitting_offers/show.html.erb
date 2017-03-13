@@ -4,42 +4,43 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="card">
-        <div class="card-title"><%= @catsittingoffer.title %>
-          <%= link_to cat_sitting_offer_path(@catsittingoffer) do %>
+        <div class="card-title"><%= @cat_sitting_offer.title %>
+          <%= link_to cat_sitting_offer_path(@cat_sitting_offer) do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
-        <div class="card-description"><%= @catsittingoffer.localisation %>
-          <%= link_to cat_sitting_offer_path(@catsittingoffer) do %>
+        <div class="card-description"><%= @cat_sitting_offer.localisation %>
+          <%= link_to cat_sitting_offer_path(@cat_sitting_offer) do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
-        <div class="card-description"><%= @catsittingoffer.description %>
-          <%= link_to cat_sitting_offer_path(@catsittingoffer) do %>
+        <div class="card-description"><%= @cat_sitting_offer.description %>
+          <%= link_to cat_sitting_offer_path(@cat_sitting_offer) do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
         <div class="card-picture">
-          <% @catsittingoffer.photos.each do |photo| %>
+          <% @cat_sitting_offer.photos.each do |photo| %>
             <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
           <% end %>
-          <%= link_to cat_sitting_offer_path(@catsittingoffer) do %>
+          <%= link_to cat_sitting_offer_path(@cat_sitting_offer) do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
-        
+
       </div>
     </div>
-    
+
   </div>
 
   <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
+    <%= hidden_field_tag 'customer_id', @booking.customer_id %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.submit "Book now", class: "btn btn-primary" %>
   <% end %>
 
-  <%= link_to 'Delete your add?', cat_sitting_offer_path(@catsittingoffer), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete your add?', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' } %>
 
   <%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path) %>
 

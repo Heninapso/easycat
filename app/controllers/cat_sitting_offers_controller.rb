@@ -12,24 +12,24 @@ class CatSittingOffersController < ApplicationController
   end
 
   def new
-    @catsittingoffer = CatSittingOffer.new
+    @cat_sitting_offer = CatSittingOffer.new
   end
 
   def create
-    @catsittingoffer = CatSittingOffer.new(catsittingoffer_params)
-    if @catsittingoffer.save
-      redirect_to cat_sitting_offer_path(@catsittingoffer)
+    @cat_sitting_offer = CatSittingOffer.new(cat_sitting_offer_params)
+    if @cat_sitting_offer.save
+      redirect_to cat_sitting_offer_path(@cat_sitting_offer)
     else
       render :new
     end
   end
 
   def update
-    @catsittingoffer.update(catsittingoffer_params)
+    @cat_sitting_offer.update(cat_sitting_offer_params)
   end
 
   def destroy
-    @catsittingoffer.destroy
+    @cat_sitting_offer.destroy
     redirect_to cat_sitting_offers_path, notice: 'Your cat sitting offer has been deleted'
   end
 
@@ -37,7 +37,7 @@ class CatSittingOffersController < ApplicationController
   private
 
   def set_cat_sitting_offer
-    @catsittingoffer = CatSittingOffer.find(params[:id])
+    @cat_sitting_offer = CatSittingOffer.find(params[:id])
   end
 
   def cat_sitting_offer_params
