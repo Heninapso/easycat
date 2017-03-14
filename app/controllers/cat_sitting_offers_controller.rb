@@ -1,7 +1,7 @@
 class CatSittingOffersController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_cat_sitting_offer, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
+  before_action :set_cat_sitting_offer, only: [:show, :edit, :update, :destroy]
 
   def index
     @cat_sitting_offers = CatSittingOffer.all
@@ -24,8 +24,13 @@ class CatSittingOffersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+
   def update
     @cat_sitting_offer.update(cat_sitting_offer_params)
+    redirect_to cat_sitting_offer_path(@cat_sitting_offer), notice: 'Your cat sitting offer has been updated'
   end
 
   def destroy
