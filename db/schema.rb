@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20170314115853) do
     t.date     "end_date"
     t.string   "status"
     t.integer  "cat_sitting_offer_id"
-    t.integer  "customer_id"
+    t.integer  "user_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["cat_sitting_offer_id"], name: "index_bookings_on_cat_sitting_offer_id", using: :btree
-    t.index ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "cat_sitting_offers", force: :cascade do |t|
@@ -80,6 +80,6 @@ ActiveRecord::Schema.define(version: 20170314115853) do
   end
 
   add_foreign_key "bookings", "cat_sitting_offers"
-  add_foreign_key "bookings", "customers"
+  add_foreign_key "bookings", "users"
   add_foreign_key "cat_sitting_offers", "users"
 end
