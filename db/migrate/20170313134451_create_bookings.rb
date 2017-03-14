@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.date :end_date
       t.string :status
       t.references :cat_sitting_offer, foreign_key: true
-      t.references :customer, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
