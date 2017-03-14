@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(150,0,0,0.2) 0%, rgba(200,100,0,0.4) 50%), url(<%= cl_image_path('ManekiHorizontal_vuxvoi', width: 700, height: 1000) %>)">
+  <div class="banner-content">
+    <h1>Easyc@t</h1>
+    <p>Find the best cat-sitter for your beloved pet</p>
+    <%= link_to 'Look at our faboulus catsitters!', cat_sitting_offers_path, {class: "btn btn-info btn-lg"} %>
+  </div>
+</div>
+
