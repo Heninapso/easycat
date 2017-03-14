@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    @user.save
-    # redirect_to edit_user_path(@user)
+    current_user.update(user_params)
+    current_user.save
+    redirect_to user_path(current_user)
   end
 
   private
