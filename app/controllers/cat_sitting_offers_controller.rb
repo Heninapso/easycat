@@ -17,6 +17,7 @@ class CatSittingOffersController < ApplicationController
 
   def create
     @cat_sitting_offer = CatSittingOffer.new(cat_sitting_offer_params)
+    @cat_sitting_offer.user = current_user
     if @cat_sitting_offer.save
       redirect_to cat_sitting_offer_path(@cat_sitting_offer)
     else
