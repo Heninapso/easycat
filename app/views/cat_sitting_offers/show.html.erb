@@ -4,46 +4,52 @@
   <div class="row">
     <div class="col-xs-12 col-md-7">
       <div class="card" id="offer" >
+        <% if current_user == @cat_sitting_offer.user %>
+          <div class="card-edit">
+            <%= link_to edit_cat_sitting_offer_path(@cat_sitting_offer) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
         <div class="card-title">
-          <p><%= @cat_sitting_offer.title %>
-          <%= link_to edit_cat_sitting_offer_path(@cat_sitting_offer) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %></p>
+          <p><%= @cat_sitting_offer.title %></p>
         </div>
         <div class="card-picture">
           <% @cat_sitting_offer.photos.each do |photo| %>
             <%= cl_image_tag photo.path, width: 200, height: 100, crop: :fill, gravity: :face %>
           <% end %>
-          <%= link_to edit_cat_sitting_offer_path(@cat_sitting_offer) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
         </div>
         <div class="card-content">
-          <p>Location: <%= @cat_sitting_offer.localisation %>
-          <%= link_to edit_cat_sitting_offer_path(@cat_sitting_offer) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %></p>
-          <p>About me: <%= @cat_sitting_offer.description %>
-          <%= link_to edit_cat_sitting_offer_path(@cat_sitting_offer) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %></p>
+          <p>Location: <%= @cat_sitting_offer.localisation %></p>
+          <p>About me: <%= @cat_sitting_offer.description %></p>
         </div>
 
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-5">
-      <div class="card" id="booking_form">
-        <div class="card-title"> Want to book <%= @cat_sitting_offer.title %>? </div>
-        <%= render 'booking_form' %>
+    <% if current_user != @cat_sitting_offer.user %>
+      <div class="col-xs-12 col-md-5">
+        <div class="card" id="booking_form">
+          <div class="card-title"> Want to book <%= @cat_sitting_offer.title %>? </div>
+          <%= render 'booking_form' %>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div class="span">  </div>
+    <% end %>
   </div>
-  <div class="container" id="links">
-    <p><%= link_to 'Delete this add?', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' }, class: "link_orange" %></p>
 
-    <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
-  </div>
+  <% if current_user == @cat_sitting_offer.user %>
+    <div class="container" id="links">
+      <p><%= link_to 'Delete this add?', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' }, class: "link_orange" %></p>
+
+      <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
+    </div>
+  <% else %>
+    <div class="container" id="links">
+      <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
+    </div>
+  <% end %>
 </div>
 
 
