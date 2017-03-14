@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
-  root 'cat_sitting_offers#index'
+  root 'pages#home'
   resources :cat_sitting_offers, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
