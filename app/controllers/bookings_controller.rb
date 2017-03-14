@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.save
-    @customer = Customer.find(params(booking[:id])
+    @customer = Customer.find(params(booking[:id]))
     redirect_to cat_sitting_offers_path
   end
 
