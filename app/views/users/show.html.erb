@@ -42,6 +42,12 @@
   <div class="row">
     <div class = "col-xs-12 col-md-6" id = "dashboard-category">
       <h2>My bookings</h2>
+      <% @bookings.each do |booking| %>
+      <h3>Booking n°<%= booking.id %></h3>
+      <p>Start date : <%= booking.start_date %></p>
+      <p>End date : <%= booking.end_date %></p>
+      <p>Status : <%= booking.status %></p>
+      <% end %>
     </div>
     <div class = "col-xs-12 col-md-6" id = "dashboard-category">
       <h2>My offers</h2>

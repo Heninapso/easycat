@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   skip_before_action :authenticate_user!, only: [:edit, :update, :show]
 
   def show
+=======
+  skip_before_action :authenticate_user!, only: :show
+
+  def show
+    @user = User.find(params[:id])
+    @bookings = current_user.bookings
+>>>>>>> 9b555e43374738e473e42034596c546e4a712bce
   end
 
   def edit
