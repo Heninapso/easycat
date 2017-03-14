@@ -1,0 +1,21 @@
+.container {
+  padding: 5em 3em 1em 3em;
+} h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+#links {
+  margin-top: 50px;
+  color: $gray;
+}
+
+#links .link_orange {
+  text-decoration: none;
+  color: $orange;
+  &:hover {
+  color: $red;
+  }
+}
+
