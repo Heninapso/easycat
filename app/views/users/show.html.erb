@@ -13,29 +13,31 @@
       <img src="http://lorempixel.com/output/nature-q-c-400-400-5.jpg" class="avatar-dashboard">
     </div>
     <div class = "col-xs-12 col-md-8" id = "dashboard-category">
-      <h2>Tableau de bord de <%= @user.first_name %> <%= @user.last_name %></h2> <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
-      <p><%= @user.email %></p>
+      <h2>Tableau de bord de <%= current_user.first_name %> <%= current_user.last_name %></h2> <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary" %>
+      <p><%= current_user.email %></p>
     </div>
   </div>
 
   <p>Dashboard avec bookings, offres, photo</p>
 
   <h1>Cam added that</h1>
-  <% bookings.each do |booking| %>
-  <h1>Request de <%=  booking.user %></h1>
-    <div class="card">
-      booking.cat_sitting_offer.title
-      booking.cat_sitting_offer.localisation
-      booking.start_date
-      booking.end_date
-
+  <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
+    <% cat_sitting_offer.bookings.each do |booking| %>
+      <div class="card">
+        booking.cat_sitting_offer.title
+        booking.cat_sitting_offer.localisation
+        booking.start_date
+        booking.end_date
         <%= simple_form_for booking do |f| %>
           <%= f.button :submit , "Accept" %>
         <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
-    booking.status = "pending"
-  <h1>Cam stopped to add stuff there</h1>
+
+
+
+
 
   <div class="row">
     <div class = "col-xs-12 col-md-6" id = "dashboard-category">

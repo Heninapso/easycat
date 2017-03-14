@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: :edit, :update, :show
+  skip_before_action :authenticate_user!, only: [:edit, :update, :show]
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
