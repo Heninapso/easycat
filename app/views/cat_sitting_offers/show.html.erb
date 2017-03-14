@@ -34,7 +34,7 @@
   </div>
 
   <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
-    <%= hidden_field_tag 'user_id', @booking.user_id %>
+    <%= hidden_field_tag 'user_id', @booking.user %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.submit "Book now", class: "btn btn-primary" %>
