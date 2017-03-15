@@ -5,4 +5,6 @@ class CatSittingOffer < ApplicationRecord
   validates :title, presence: true
   validates :localisation, presence: true
   validates :description, presence: true
+  geocoded_by :localisation
+  after_validation :geocode, if: [:localisation_changed?]
 end
