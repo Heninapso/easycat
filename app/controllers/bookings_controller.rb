@@ -3,6 +3,9 @@ class BookingsController < ApplicationController
     @cat_sitting_offer = CatSittingOffer.find(params[:cat_sitting_offer_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.user.first_name = user_params[:user][:first_name]
+    @booking.user.last_name = user_params[:user][:last_name]
+    current_user.save
     @booking.cat_sitting_offer = @cat_sitting_offer
     @booking.status = "pending"
     @booking.save
@@ -20,8 +23,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def user_params
+    params.require(:booking).permit( :user => [:first_name, :last_name])
   end
 end

@@ -34,10 +34,10 @@
               <div class="container text-center">
                 <div class="tab-content" id="bookings">
                   <% @bookings.each do |booking| %>
-                  <h3>Booking n°<%= booking.id %></h3>
-                  <p>Start date : <%= booking.start_date %></p>
-                  <p>End date : <%= booking.end_date %></p>
-                  <p>Status : <%= booking.status %></p>
+                    <h3>Booking n°<%= booking.id %></h3>
+                    <p>Start date : <%= booking.start_date %></p>
+                    <p>End date : <%= booking.end_date %></p>
+                    <p>Status : <%= booking.status %></p>
                   <% end %>
                   <p>So many bookings, my cat is a star !</p>
                 </div>

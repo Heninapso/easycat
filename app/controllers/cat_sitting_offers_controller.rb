@@ -18,8 +18,9 @@ class CatSittingOffersController < ApplicationController
   def create
     @cat_sitting_offer = CatSittingOffer.new(cat_sitting_offer_params)
     @cat_sitting_offer.user = current_user
-    @cat_sitting_offer.user.first_name = params[:cat_sitting_offer][:user][:first_name]
-    @cat_sitting_offer.user.last_name = params[:cat_sitting_offer][:user][:last_name]
+    @cat_sitting_offer.user.first_name = user_params[:user][:first_name]
+    @cat_sitting_offer.user.last_name = user_params[:user][:last_name]
+    current_user.save
     if @cat_sitting_offer.save
       redirect_to cat_sitting_offer_path(@cat_sitting_offer)
     else
@@ -52,4 +53,7 @@ class CatSittingOffersController < ApplicationController
     params.require(:cat_sitting_offer).permit(:title, :localisation, :description, :status, photos: [])
   end
 
+  def user_params
+    params.require(:cat_sitting_offer).permit( :user => [:first_name, :last_name])
+  end
 end
