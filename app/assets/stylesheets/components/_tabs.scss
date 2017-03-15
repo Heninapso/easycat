@@ -30,9 +30,21 @@
   color: black;
 }
 .tab-content {
-  padding-top: 50px;
+  padding-top: 20px;
 }
 .tab-content p {
-  font-size: 30px;
+  padding-top: 20px;
+  font-size: 1em;
   font-weight: bold;
+}
+
+.booking {
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+  background: #D1D1D1;
+}
+
+.booking:hover {
+  background: #F6F6F6;
+  padding: 0px 20px 0px 20px;
 }
