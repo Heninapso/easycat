@@ -46,9 +46,9 @@ cat_sitting_offer_camille.photo_urls = urls3
 
 
 
-booking_quentin = Booking.create({start_date: Date.today , end_date: Date.today + 2.days, cat_sitting_offer: cat_sitting_offer_camille, user: quentin})
-booking_anne_sophie = Booking.create({start_date:Date.today + 2.days , end_date:Date.today + 4.days, cat_sitting_offer: cat_sitting_offer_quentin, user: anne_sophie})
-booking_camille = Booking.create({start_date: Date.today + 4.days , end_date: Date.today + 6.days, cat_sitting_offer: cat_sitting_offer_anne_sophie, user: camille})
+booking_quentin = Booking.create!({start_date: Date.today , end_date: Date.today + 2.days, cat_sitting_offer: cat_sitting_offer_camille, user: quentin, status: "pending"})
+booking_anne_sophie = Booking.create!({start_date:Date.today + 2.days , end_date:Date.today + 4.days, cat_sitting_offer: cat_sitting_offer_quentin, user: anne_sophie, status: "pending"})
+booking_camille = Booking.create!({start_date: Date.today + 4.days , end_date: Date.today + 6.days, cat_sitting_offer: cat_sitting_offer_anne_sophie, user: camille, status: "pending"})
 
 puts "ok"
 
