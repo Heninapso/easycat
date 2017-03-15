@@ -1,5 +1,9 @@
 <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
   <%= hidden_field_tag 'user_id', @booking.user %>
+  <%=  f.association :user do |c| %>
+    <%= c.input :first_name %>
+    <%= c.input :last_name %>
+  <% end %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit "Book now", class: "btn btn-info" %>
