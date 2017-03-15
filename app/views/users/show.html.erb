@@ -16,30 +16,31 @@
             </div>
           </div>
           <div class="col-md-9">
-          <div class="row">
-            <div class="tabs">
-              <a class="tab active" data-target="#bookings">
-                <h3>My bookings <i class="fa fa-calendar" aria-hidden="true"></i></h3>
-              </a>
-              <a class="tab" data-target="#offers">
-                <h3>My offers <i class="fa fa-hand-o-right" aria-hidden="true"></i></h3>
-              </a>
-              <a class="tab" data-target="#requests">
-                <h3>My requests <i class="fa fa-flag" aria-hidden="true"></i></h3>
-              </a>
+            <div class="row">
+              <div class="tabs">
+                <a class="tab active" data-target="#bookings">
+                  <h3>My bookings <i class="fa fa-calendar" aria-hidden="true"></i></h3>
+                </a>
+                <a class="tab" data-target="#offers">
+                  <h3>My offers <i class="fa fa-hand-o-right" aria-hidden="true"></i></h3>
+                </a>
+                <a class="tab" data-target="#requests">
+                  <h3>My requests <i class="fa fa-flag" aria-hidden="true"></i></h3>
+                </a>
               </div>
-              </div>
-              </div>
+            </div>
+          </div>
             <div class="row">
               <div class="container text-center">
                 <div class="tab-content" id="bookings">
                   <% @bookings.each do |booking| %>
-                    <h3>Booking n°<%= booking.id %></h3>
-                    <p>Start date : <%= booking.start_date %></p>
-                    <p>End date : <%= booking.end_date %></p>
-                    <p>Status : <%= booking.status %></p>
-                  <% end %>
-                  <p>So many bookings, my cat is a star !</p>
+                    <div class= "booking">
+                      <h3>Booking n°<%= booking.id %></h3>
+                      <p>Start date : <%= booking.start_date %></p>
+                      <p>End date : <%= booking.end_date %></p>
+                      <p>Status : <%= booking.status %></p>
+                    </div>
+                      <% end %>
                 </div>
                 <div class="tab-content hidden" id="offers">
                   <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
@@ -49,7 +50,6 @@
                       <%= cat_sitting_offer.description %>
                     </div>
                   <% end %>
-                  <p>Here are my amazing offers !</p>
                 </div>
                 <div class="tab-content hidden" id="requests">
                   <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
@@ -75,14 +75,11 @@
                         </div>
                       <% end %>
                     <% end %>
-                    <p>I have requests ? Oh yes I do</p>
                 </div>
               </div>
-              </div>
-
-
             </div>
-          </div>
+
+
         </div>
       </div>
     </div>
