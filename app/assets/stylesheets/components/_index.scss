@@ -4,18 +4,11 @@
 @import "cards";
 @import "banner";
 @import "buttons";
+@import "forms";
+@import "dashboard";
+@import "tabs";
+@import "profile_header";
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-
-#dashboard-category {
-  border-radius: 5px;
-  padding: 5px;
-}
-
-#dashboard-category:hover {
-  background-color: #F3F3F3;
-  border-radius: 5px;
-  padding: 5px;
-}
 
 h1, h2, h3, body {
   font-family: 'Indie Flower', cursive;
