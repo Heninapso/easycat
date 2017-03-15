@@ -1,4 +1,8 @@
 <%= simple_form_for @cat_sitting_offer do |f| %>
+  <%=  f.association :user do |c| %>
+    <%= c.input :first_name %>
+    <%= c.input :last_name %>
+  <% end %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :localisation %>

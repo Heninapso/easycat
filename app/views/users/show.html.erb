@@ -11,6 +11,7 @@
             <div class="profile-header-infos">
               <img src="http://lorempixel.com/output/nature-q-c-400-400-5.jpg" class="avatar-dashboard">
               <p>Email : <%= current_user.email %></p>
+              <p>Name : <%= current_user.first_name %></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>
             </div>
           </div>
