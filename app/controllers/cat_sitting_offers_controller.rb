@@ -4,7 +4,12 @@ class CatSittingOffersController < ApplicationController
   before_action :set_cat_sitting_offer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cat_sitting_offers = CatSittingOffer.all
+    @cat_sitting_offers = CatSittingOffer.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
+      marker.lat cso.latitude
+      marker.lng cso.longitude
+      # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
+    end
   end
 
   def show
