@@ -20,8 +20,6 @@
 
   <p>Dashboard avec bookings, offres, photo</p>
 
-
-
   <div class="row">
     <div class = "col-xs-12 col-md-" id = "dashboard-category">
       <h2>My bookings</h2>
@@ -50,13 +48,19 @@
               <%= booking.start_date %>
               <%= booking.end_date %>
 
+              <% if booking.status == "accepted" %>
+                <p>accepted</p>
+                <% elsif booking.status == "declined" %>
+                <p>declined</p>
+              <% else %>
                 <%= simple_form_for booking do |f| %>
                   <%= f.button :submit , "Accept" %>
                 <% end %>
-
                 <%= simple_form_for booking do |f| %>
-                  <%= f.button :submit , "Delete" %>
+                  <%= f.button :submit , "Decline" %>
                 <% end %>
+              <% end %>
+
             </div>
           <% end %>
         <% end %>
