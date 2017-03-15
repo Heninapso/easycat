@@ -5,7 +5,7 @@ class CatSittingOffersController < ApplicationController
 
   def index
     @cat_sitting_offers = CatSittingOffer.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@cat_sitting_offer) do |cso, marker|
+    @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
       marker.lat cso.latitude
       marker.lng cso.longitude
       # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
