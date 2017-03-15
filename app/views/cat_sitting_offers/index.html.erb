@@ -2,30 +2,36 @@
 <h2>Find someone to take care of your cat</h2>
 
 <div class ="container">
-  <% @cat_sitting_offers.each do |cat_sitting_offer| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="card"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
-        <div class="card-description">
-          <h2>
-            <%= cat_sitting_offer.title %>
-          </h2>
-          <p>
-            <%= cat_sitting_offer.localisation %>
-          </p>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <% @cat_sitting_offers.each do |cat_sitting_offer| %>
+        <div class="col-xs-12 col-md-6">
+          <div class="card"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
+            <div class="card-description">
+              <h2>
+                <%= cat_sitting_offer.title %>
+              </h2>
+              <p>
+                <%= cat_sitting_offer.localisation %>
+              </p>
+            </div>
+            <% if cat_sitting_offer.photos? %>
+              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
+              <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
+            <% else %>
+              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
+              <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
+            <% end %>
+          </div>
         </div>
-        <% if cat_sitting_offer.photos? %>
-          <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
-          <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
-        <% else %>
-          <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
-          <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="col-xs-12 col-md-6">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+    </div>
+  </div>
 </div>
-<div id="map" style="width: 100%; height: 600px;"></div>
 
 <%= content_for(:after_js) do %>
   <script>
@@ -36,7 +42,7 @@
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         if (markers.length == 0) {
-          handler.getMap().setZoom(2);
+          handler.getMap().setZoom(3);
         } else if (markers.length == 1) {
           handler.getMap().setZoom(14);
       }
