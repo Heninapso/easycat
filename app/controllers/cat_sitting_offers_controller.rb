@@ -8,7 +8,7 @@ class CatSittingOffersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
       marker.lat cso.latitude
       marker.lng cso.longitude
-      # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
+      marker.infowindow render_to_string(partial: 'infowindow', locals: { cso: cso })
     end
   end
 
@@ -18,7 +18,7 @@ class CatSittingOffersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
       marker.lat cso.latitude
       marker.lng cso.longitude
-      # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
+      marker.infowindow render_to_string(partial: 'infowindow', locals: { cso: cso })
     end
   end
 
