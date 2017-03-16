@@ -8,11 +8,6 @@
 @import "dashboard";
 @import "tabs";
 @import "profile_header";
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-
-h1, h2, h3, body {
-  font-family: 'Indie Flower', cursive;
-}
 
 .devise-links a {
   text-decoration:none;
@@ -21,7 +16,7 @@ h1, h2, h3, body {
 
 .devise-links a:hover {
   text-decoration:none;
-  color:#ff82db;
+  color: $pink;
 }
 
 .text-title {
