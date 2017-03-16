@@ -37,3 +37,43 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+.button-accept {
+  background-color: #00D672;
+  color:white;
+  border-radius:10px;
+  padding: 6px 18px 6px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-accept:hover {
+  background-color: #82FFC2;
+  color:white;
+  border-radius:10px;
+  padding: 6px 18px 6px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-decline {
+  background-color: #FF3838;
+  color:white;
+  border-radius:10px;
+  padding: 6px 18px 6px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-decline:hover {
+  background-color: #FF8C8C;
+  color:white;
+  border-radius:10px;
+  padding: 6px 18px 6px 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
