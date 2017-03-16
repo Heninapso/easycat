@@ -16,9 +16,9 @@
 
   <div>
     <% if current_user.photo? %>
-        <%= cl_image_tag @cat_sitting_offer.user.photo.path, class: "avatar-offer avatar-bordered" %>
+        <%= cl_image_tag(@cat_sitting_offer.user.photo.path, :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-bordered") %>
       <% else %>
-        <%= image_tag 'avatar.png', class: "avatar-offer avatar-bordered" %>
+        <%= image_tag 'avatar.png', :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-offer avatar-bordered" %>
       <% end %>
       <p class="text-center" ><%= current_user.first_name%> </p>
     </div>
