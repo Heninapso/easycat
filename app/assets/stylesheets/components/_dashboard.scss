@@ -23,6 +23,11 @@
   padding: 10px;
 }
 
+.dashboard-card:hover {
+  background-color: #F3F3F3;
+  font-size: 16px;
+  padding: 15px;
+}
 .dashboard-card span {
   display: block;
 }
@@ -30,3 +35,4 @@
 .dashboard-card-child {
   margin: 10px 0px 10px 0px;
 }
+
