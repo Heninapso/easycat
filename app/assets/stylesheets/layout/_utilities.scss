@@ -27,3 +27,11 @@
 .bg-light-grey {
   background: #F4F4F4;
 }
+
+
+.flex-inline {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+}
