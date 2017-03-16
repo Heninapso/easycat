@@ -1,0 +1,6 @@
+<%=form_tag search_cat_sitting_offers_path, method: 'get' do |f| %>
+  <%= text_field_tag :search, params[:search], placeholder: 'Type your address here', class: "navbar-wagon-search-input" %>
+  <%= submit_tag 'Search'%>
+<% end %>
+
+
