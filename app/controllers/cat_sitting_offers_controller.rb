@@ -1,6 +1,6 @@
 class CatSittingOffersController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit, :search]
   before_action :set_cat_sitting_offer, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,7 +8,17 @@ class CatSittingOffersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
       marker.lat cso.latitude
       marker.lng cso.longitude
-      # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
+      marker.infowindow render_to_string(partial: 'infowindow', locals: { cso: cso })
+    end
+  end
+
+  def search
+    @address = params[:search]
+    @cat_sitting_offers = CatSittingOffer.near(@address, 10)
+    @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
+      marker.lat cso.latitude
+      marker.lng cso.longitude
+      marker.infowindow render_to_string(partial: 'infowindow', locals: { cso: cso })
     end
   end
 

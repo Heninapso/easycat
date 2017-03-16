@@ -5,85 +5,118 @@
     </div>
   </div>
     <div class="profile-header-wrapper">
-      <div class="container profile-header-container text-center">
+      <div class="profile-header-container text-center">
         <div class="row">
-          <div class="col-md-3">
-            <div class="profile-header-infos">
+          <div class="col-12">
+            <div class="tabs">
+              <a class="tab active" data-target="#profile">
+                <h3>My profile <i class="fa fa-user" aria-hidden="true"></i></i></h3>
+              </a>
+              <a class="tab" data-target="#bookings">
+                <h3>My bookings <i class="fa fa-calendar" aria-hidden="true"></i></h3>
+              </a>
+              <a class="tab" data-target="#offers">
+                <h3>My offers <i class="fa fa-hand-o-right" aria-hidden="true"></i></h3>
+              </a>
+              <a class="tab" data-target="#requests">
+                <h3>My requests <i class="fa fa-flag" aria-hidden="true"></i></h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="tab-content" id="profile">
               <img src="http://lorempixel.com/output/nature-q-c-400-400-5.jpg" class="avatar-dashboard">
               <p>Email : <%= current_user.email %></p>
-              <p>Name : <%= current_user.first_name %></p>
+              <p>Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>
             </div>
-          </div>
-          <div class="col-md-9">
-            <div class="row">
-              <div class="tabs">
-                <a class="tab active" data-target="#bookings">
-                  <h3>My bookings <i class="fa fa-calendar" aria-hidden="true"></i></h3>
-                </a>
-                <a class="tab" data-target="#offers">
-                  <h3>My offers <i class="fa fa-hand-o-right" aria-hidden="true"></i></h3>
-                </a>
-                <a class="tab" data-target="#requests">
-                  <h3>My requests <i class="fa fa-flag" aria-hidden="true"></i></h3>
-                </a>
-              </div>
+            <div class="tab-content hidden" id="bookings">
+              <% @bookings.each do |booking| %>
+                <div class= "dashboard-card">
+                  <div class="dashboard-card-child">
+                    <h3>Booking <b>#<%= booking.id %></b></h3>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <p><i class="fa fa-calendar" aria-hidden="true"></i> Start date : <b><%= booking.start_date %></b></p>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <p><i class="fa fa-calendar" aria-hidden="true"></i> End date : <b><%= booking.end_date %></b></p>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <p><i class="fa fa-list" aria-hidden="true"></i> Status : <b><%= booking.status %></b></p>
+                  </div>
+                </div>
+                <hr>
+              <% end %>
             </div>
-          </div>
-            <div class="row">
-              <div class="container text-center">
-                <div class="tab-content" id="bookings">
-                  <% @bookings.each do |booking| %>
-                    <div class= "booking">
-                      <h3>Booking n°<%= booking.id %></h3>
-                      <p>Start date : <%= booking.start_date %></p>
-                      <p>End date : <%= booking.end_date %></p>
-                      <p>Status : <%= booking.status %></p>
-                    </div>
-                      <% end %>
-                </div>
-                <div class="tab-content hidden" id="offers">
-                  <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
-                    <div class="card">
-                      <%= cat_sitting_offer.title %>
-                      <%= cat_sitting_offer.localisation %>
-                      <%= cat_sitting_offer.description %>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="tab-content hidden" id="requests">
-                  <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
-                      <% cat_sitting_offer.bookings.each do |booking| %>
-                        <div class="card">
-                          <%= booking.cat_sitting_offer.title %>
-                          <%= booking.cat_sitting_offer.localisation %>
-                          <%= booking.start_date %>
-                          <%= booking.end_date %>
-
-                          <% if booking.status == "accepted" %>
-                            <p>accepted</p>
-                            <% elsif booking.status == "declined" %>
-                            <p>declined</p>
-                          <% else %>
-                            <%= simple_form_for booking do |f| %>
-                              <%= f.button :submit , "Accept" %>
-                            <% end %>
-                            <%= simple_form_for booking do |f| %>
-                              <%= f.button :submit , "Decline" %>
-                            <% end %>
-                          <% end %>
-                        </div>
-                      <% end %>
+            <div class="tab-content hidden" id="offers">
+              <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
+                <div class="dashboard-card">
+                  <div class="dashboard-card-child">
+                    <h3><%= cat_sitting_offer.title %></h3>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <span><i class="fa fa-map-marker" aria-hidden="true"></i> Where : <b><%= cat_sitting_offer.localisation %></b></span>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <span><i class="fa fa-pencil" aria-hidden="true"></i> Content of your offer : " <i><%= cat_sitting_offer.description %></i> "</span>
+                  </div>
+                  <div class="dashboard-card-child">
+                    <%= link_to edit_cat_sitting_offer_path(cat_sitting_offer) do %>
+                      <p>Edit this offer</p>
                     <% end %>
+                    <%= link_to 'Delete this offer', cat_sitting_offer_path(cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
                 </div>
-              </div>
+                <hr>
+              <% end %>
             </div>
+            <div class="tab-content hidden" id="requests">
+              <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
+                <% cat_sitting_offer.bookings.each do |booking| %>
+                  <div class="dashboard-card">
+                    <div class="dashboard-card-child">
+                      <p>Congrats ! You just received a request for the following offer :</p>
+                      <h3>"<%= booking.cat_sitting_offer.title %>"</h3>
+                    </div>
+                    <div class="dashboard-card-child">
+                      <span><i class="fa fa-user" aria-hidden="true"></i> Requested by <b><%= booking.user.first_name %> <%= booking.user.last_name %></b></span>
+                    </div>
+                    <div class="dashboard-card-child">
+                      <span><i class="fa fa-map-marker" aria-hidden="true"></i> Where : <b><%= booking.cat_sitting_offer.localisation %></b></span>
+                    </div>
+                    <div class="dashboard-card-child">
+                      <span><i class="fa fa-calendar" aria-hidden="true"></i> From <b><%= booking.start_date %></b> to <b><%= booking.end_date %></b></span>
+                    </div>
 
-
+                        <% if booking.status == "accepted" %>
+                          <p>accepted</p>
+                        <% elsif booking.status == "declined" %>
+                          <p>declined</p>
+                        <% else %>
+                            <%= simple_form_for booking do |f| %>
+                              <div class="dashboard-card-child">
+                                <span><%= f.button :submit , "Accept", class:"button-accept" %></span>
+                              </div>
+                              <% end %>
+                            <%= simple_form_for booking do |f| %>
+                              <div class="dashboard-card-child">
+                                <span><%= f.button :submit , "Decline", class:"button-decline" %></span>
+                              </div>
+                              <% end %>
+                        <% end %>
+                  </div>
+                <hr>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
