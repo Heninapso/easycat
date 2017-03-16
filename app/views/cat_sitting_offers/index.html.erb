@@ -27,7 +27,7 @@
               </div>
 
               <% if cat_sitting_offer.user.photo? %>
-                <%= cl_image_tag cat_sitting_offer.user.photo.path, class: "card-user avatar avatar-bordered"%>
+                <%= cl_image_tag cat_sitting_offer.user.photo.path,:width=>50, :height=>50, :gravity=>"auto", :crop=>"fill", class: "card-user avatar-bordered"%>
                 <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
               <% else %>
                 <%= image_tag 'avatar.png', class: "card-user avatar avatar-bordered"%>
