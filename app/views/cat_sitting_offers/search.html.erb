@@ -1,54 +1,91 @@
 <div class = "text-title">
   <h1>All the catsitters near you!</h1>
-    <p>Your search for: <%= @address %></p>
 </div>
-<div class ="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <% @cat_sitting_offers.each do |cat_sitting_offer| %>
-        <div class="col-xs-12 col-md-6">
-          <div class="card"
-                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
-            <div class="card-description">
-              <h2>
-                <%= cat_sitting_offer.title %>
-              </h2>
-              <p>
-                <%= cat_sitting_offer.localisation %>
-              </p>
-            </div>
-            <% if cat_sitting_offer.photos? %>
-              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
-              <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
-            <% else %>
-              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
-              <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
-            <% end %>
+<% if @cat_sitting_offers == 0 %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="span">
+          <p>No catsitters yet around <%= @address %>....</p>
+          <p>Search again! </p>
+          <div class="span-form">
+            <%= render '/pages/search_form' %>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div id="map" style="width: 100%; height: 600px;"></div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="span">
+          <p>Have a look at all our amazing catsitters around the world! </p>
+            <div class="span-link">
+            <%= link_to 'See all catsitters!', cat_sitting_offers_path, class: "btn-large" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <p>Your search for: <%= @address %></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <p>Didn't find what you were looking for?</p>
+          <%= link_to 'See all our amazing catsitters!', cat_sitting_offers_path, class: "btn-large" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class ="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <% @cat_sitting_offers.each do |cat_sitting_offer| %>
+          <div class="col-xs-12 col-md-6">
+            <div class="card"
+                  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
+              <div class="card-description">
+                <h2>
+                  <%= cat_sitting_offer.title %>
+                </h2>
+                <p>
+                  <%= cat_sitting_offer.localisation %>
+                </p>
+              </div>
+              <% if cat_sitting_offer.photos? %>
+                <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
+                <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
+              <% else %>
+                <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
+                <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div id="map" style="width: 100%; height: 600px;"></div>
+      </div>
+    </div>
+  </div>
 
-<%= content_for(:after_js) do %>
-  <script>
-    $(document).ready(function () {
-      var handler = Gmaps.build ('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(3);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-      }
+  <%= content_for(:after_js) do %>
+    <script>
+      $(document).ready(function () {
+        var handler = Gmaps.build ('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(3);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+        }
+      });
     });
-  });
-  </script>
+    </script>
+  <% end %>
 <% end %>
-
