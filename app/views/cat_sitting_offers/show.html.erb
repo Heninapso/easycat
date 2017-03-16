@@ -13,6 +13,15 @@
       <h3><%= @cat_sitting_offer.localisation %></h3>
       <p>15€/jour</p>
     </div>
+
+  <div>
+    <% if current_user.photo? %>
+        <%= cl_image_tag @cat_sitting_offer.user.photo.path, class: "avatar-offer avatar-bordered" %>
+      <% else %>
+        <%= image_tag 'avatar.png', class: "avatar-offer avatar-bordered" %>
+      <% end %>
+      <p class="text-center" ><%= current_user.first_name%> </p>
+    </div>
   </div>
 
   <div class="row padded">
