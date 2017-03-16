@@ -18,10 +18,10 @@
               </p>
             </div>
             <% if cat_sitting_offer.photos? %>
-              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
+              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar-bordered"%>
               <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
             <% else %>
-              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
+              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar-bordered"%>
               <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
             <% end %>
           </div>
