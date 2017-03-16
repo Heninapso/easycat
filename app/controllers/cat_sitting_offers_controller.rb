@@ -15,6 +15,11 @@ class CatSittingOffersController < ApplicationController
   def search
     @address = params[:search]
     @cat_sitting_offers = CatSittingOffer.near(@address, 10)
+    @hash = Gmaps4rails.build_markers(@cat_sitting_offers) do |cso, marker|
+      marker.lat cso.latitude
+      marker.lng cso.longitude
+      # marker.infowindow render_to_string(partial: "/csos/map_box", locals: { cso: cso })
+    end
   end
 
   def show
