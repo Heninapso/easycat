@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user.last_name = user_params[:user][:last_name]
     current_user.save
     @booking.cat_sitting_offer = @cat_sitting_offer
-    @booking.status = "pending"
+    @booking.status = "Pending"
     @booking.save
     redirect_to cat_sitting_offers_path
   end
@@ -15,10 +15,10 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if params[:commit]  == "Accept"
-      @booking.update(status: "accepted")
+      @booking.update(status: "Accepted")
       redirect_to user_path(current_user), notice: "You accepted the booking request of #{@booking.user.first_name}"
     else
-      @booking.update(status: "declined")
+      @booking.update(status: "Declined")
       redirect_to user_path(current_user), notice: "You declined the booking request of #{@booking.user.first_name}"
     end
   end
