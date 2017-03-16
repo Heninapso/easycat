@@ -1,6 +1,9 @@
 <%=form_tag search_cat_sitting_offers_path, method: 'get' do |f| %>
-  <%= text_field_tag :search, params[:search], placeholder: 'Type your address here', class: "navbar-wagon-search-input" %>
-  <%= submit_tag 'Search'%>
+  <%= text_field_tag :search, params[:search], placeholder: 'Type your address', class: "navbar-wagon-search-input" %>
+  <%= button_tag(class: "button-sml") do %>
+    <i class="fa fa-search"></i>
+  <% end %>
 <% end %>
+
 
 
