@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-12">
             <div class="tab-content" id="profile">
-              <img src="http://lorempixel.com/output/nature-q-c-400-400-5.jpg" class="avatar-dashboard">
+              <%= image_tag current_user.photo.path, alt: "profile picture", class: "avatar-dashboard" %>
               <p>Email : <%= current_user.email %></p>
               <p>Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>
