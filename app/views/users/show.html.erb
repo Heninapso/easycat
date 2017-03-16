@@ -35,21 +35,37 @@
               <div class="col-sm-12">
                   <div class="tab-content" id="bookings">
                     <% @bookings.each do |booking| %>
-                      <div class= "booking">
-                        <h3>Booking n°<%= booking.id %></h3>
-                        <p>Start date : <%= booking.start_date %></p>
-                        <p>End date : <%= booking.end_date %></p>
-                        <p>Status : <%= booking.status %></p>
+                      <div class= "dashboard-card">
+                        <div class="dashboard-card-child">
+                          <h3>Booking <b>#<%= booking.id %></b></h3>
+                        </div>
+                        <div class="dashboard-card-child">
+                          <p><i class="fa fa-calendar" aria-hidden="true"></i> Start date : <b><%= booking.start_date %></b></p>
+                        </div>
+                        <div class="dashboard-card-child">
+                          <p><i class="fa fa-calendar" aria-hidden="true"></i> End date : <b><%= booking.end_date %></b></p>
+                        </div>
+                        <div class="dashboard-card-child">
+                          <p><i class="fa fa-list" aria-hidden="true"></i> Status : <b><%= booking.status %></b></p>
+                        </div>
                       </div>
+                      <hr>
                         <% end %>
                   </div>
                   <div class="tab-content hidden" id="offers">
                     <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
-                      <div class="card">
-                        <%= cat_sitting_offer.title %>
-                        <%= cat_sitting_offer.localisation %>
-                        <%= cat_sitting_offer.description %>
+                      <div class="dashboard-card">
+                        <div class="dashboard-card-child">
+                          <h3><%= cat_sitting_offer.title %></h3>
+                        </div>
+                        <div class="dashboard-card-child">
+                          <span><i class="fa fa-map-marker" aria-hidden="true"></i> Where : <b><%= cat_sitting_offer.localisation %></b></span>
+                        </div>
+                        <div class="dashboard-card-child">
+                          <span><i class="fa fa-pencil" aria-hidden="true"></i> Content of your offer : " <i><%= cat_sitting_offer.description %></i> "</span>
+                        </div>
                       </div>
+                      <hr>
                     <% end %>
                   </div>
                   <div class="tab-content hidden" id="requests">
@@ -61,7 +77,7 @@
                               <h3>"<%= booking.cat_sitting_offer.title %>"</h3>
                             </div>
                             <div class="dashboard-card-child">
-                              <span><i class="fa fa-user" aria-hidden="true"></i> Requested by <%= booking.user.first_name %> <%= booking.user.last_name %></span>
+                              <span><i class="fa fa-user" aria-hidden="true"></i> Requested by <b><%= booking.user.first_name %> <%= booking.user.last_name %></b></span>
                             </div>
                             <div class="dashboard-card-child">
                               <span><i class="fa fa-map-marker" aria-hidden="true"></i> Where : <b><%= booking.cat_sitting_offer.localisation %></b></span>
