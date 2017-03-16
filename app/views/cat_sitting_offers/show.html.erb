@@ -15,12 +15,12 @@
     </div>
 
     <div>
-      <% if current_user.photo? %>
+      <% if @cat_sitting_offer.user.photo? %>
         <%= cl_image_tag @cat_sitting_offer.user.photo.path, class: "avatar-offer avatar-bordered" %>
       <% else %>
         <%= image_tag 'avatar.png', class: "avatar-offer avatar-bordered" %>
       <% end %>
-      <p class="text-center"><%= current_user.first_name%> </p>
+      <p class="text-center"><%= @cat_sitting_offer.first_name%> </p>
     </div>
   </div>
 
