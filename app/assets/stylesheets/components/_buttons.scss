@@ -38,6 +38,13 @@
   overflow: hidden;
 }
 
+.button-sml {
+  background-color: #ff82db;
+  color:white;
+  border-radius:8px;
+  padding: 2px 7px 2px 7px;
+}
+
 .button-accept {
   background-color: #00D672;
   color:white;
@@ -47,6 +54,13 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.button-sml:hover {
+  background-color: #ffb7ea;
+  color:white;
+  border-radius:8px;
+  padding: 2px 7px 2px 7px;
+}
+
 
 .button-accept:hover {
   background-color: #82FFC2;

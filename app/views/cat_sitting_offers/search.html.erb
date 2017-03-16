@@ -1,6 +1,6 @@
 <div class = "text-title">
-  <h1>Welcome to EasyCat</h1>
-    <h2>Find someone to take care of your cat</h2>
+  <h1>All the catsitters near you!</h1>
+    <p>Your search for: <%= @address %></p>
 </div>
 <div class ="container">
   <div class="row">
@@ -18,10 +18,10 @@
               </p>
             </div>
             <% if cat_sitting_offer.photos? %>
-              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar-bordered"%>
+              <%= cl_image_tag cat_sitting_offer.photos.first.path, class: "card-user avatar"%>
               <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
             <% else %>
-              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar-bordered"%>
+              <%= image_tag "https://www.bunnyholder.com/30/30", class: "card-user avatar"%>
               <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
             <% end %>
           </div>
@@ -51,3 +51,4 @@
   });
   </script>
 <% end %>
+

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
   resources :cat_sitting_offers, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'search', to: 'cat_sitting_offers#search'
+    end
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:update]
