@@ -28,6 +28,11 @@ gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
 
+#datepicker
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end

@@ -1,6 +1,6 @@
 class CatSittingOffersController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show, :edit, :search]
+  skip_before_action :authenticate_user!, only: [:index, :edit, :search]
   before_action :set_cat_sitting_offer, only: [:show, :edit, :update, :destroy]
 
   def index
