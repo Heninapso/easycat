@@ -1,93 +1,112 @@
 .btn-large {
   background-color: $pink;
   color: white;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  border-style: none;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .btn-large:hover {
   background-color: #ffb7ea;
   color: white;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button {
   background-color: $pink;
   color:white;
-  border-radius:10px;
-  padding: 5px 15px 5px 15px;
+  border-radius:20em;
+  padding: 10px 20px;
   text-decoration: none;
   white-space: nowrap;
-  overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button:hover {
   background-color: #ffb7ea;
   color:white;
-  border-radius:10px;
-  padding: 5px 15px 5px 15px;
+  border-radius:20em;
+  padding: 10px 20px;
   text-decoration: none;
   white-space: nowrap;
-  overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button-sml {
   background-color: #ff82db;
   color:white;
-  border-radius:8px;
-  padding: 2px 7px 2px 7px;
+  border-radius:20em;
+  padding: 0 20px;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button-accept {
   background-color: #00D672;
   color:white;
-  border-radius:10px;
-  padding: 6px 18px 6px 18px;
+  border-radius:20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 .button-sml:hover {
   background-color: #ffb7ea;
   color:white;
-  border-radius:8px;
-  padding: 2px 7px 2px 7px;
+  border-radius:20em;
+  padding: 0 20px;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 
 .button-accept:hover {
   background-color: #82FFC2;
   color:white;
-  border-radius:10px;
-  padding: 6px 18px 6px 18px;
+  border-radius:20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button-decline {
   background-color: #FF3838;
   color:white;
-  border-radius:10px;
-  padding: 6px 18px 6px 18px;
+  border-radius:20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
 
 .button-decline:hover {
   background-color: #FF8C8C;
   color:white;
-  border-radius:10px;
-  padding: 6px 18px 6px 18px;
+  border-radius:20em;
+  padding: 0 20px;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 40px;
+  border: 2px solid white;
 }
