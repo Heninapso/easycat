@@ -9,12 +9,13 @@
 Booking.destroy_all
 CatSittingOffer.destroy_all
 User.destroy_all
-quentin = User.create(email: "quentin@gmail.com", password: "azerty")
-anne_sophie = User.create(email: "anne_sophie@gmail.com", password: "azerty")
-camille = User.create(email: "camille@gmail.com", password: "azerty")
-jean = User.create(email: "jean@gmail.com", password: "azerty")
-edouard = User.create(email: "edouard@gmail.com", password: "azerty")
-alice = User.create(email: "alice@gmail.com", password: "azerty")
+quentin = User.create(email: "quentin@gmail.com", password: "azerty", first_name: "Quentin", last_name: "Coray")
+anne_sophie = User.create(email: "anne_sophie@gmail.com", password: "azerty", first_name: "Anne-Sophie", last_name: "Chambon")
+camille = User.create(email: "camille@gmail.com", password: "azerty", first_name: "Camille", last_name: "Franceschi")
+jean = User.create(email: "jean@gmail.com", password: "azerty", first_name: "Jean", last_name: "Flantier")
+edouard = User.create(email: "edouard@gmail.com", password: "azerty", first_name: "Edouard", last_name: "Robert")
+alice = User.create(email: "alice@gmail.com", password: "azerty", first_name: "Alice", last_name: "Martin")
+
 
 photo_quentin = 'https://pbs.twimg.com/profile_images/618004273998249984/-46_Q9Ca.jpg'
 photo_anne_sophie = 'https://avatars1.githubusercontent.com/u/25099604?v=3&s=460'
@@ -30,77 +31,79 @@ jean.photo_url = photo_jean
 edouard.photo_url = photo_edouard
 alice.photo_url = photo_alice
 
-cat_sitting_offer_quentin = CatSittingOffer.create(
-  {title:"Wonderful catsitter" , localisation: "Paris", description:"Love cat since my childhood", user: quentin})
+
+
+
+cat_sitting_offer_quentin = CatSittingOffer.create({title:"Wonderful catsitter" , localisation: "2 rue de la paix,Paris", description:"Love cat since my childhood", user: quentin})
+
+cat_sitting_offer_quentin1 = CatSittingOffer.create(
+  {title:"Wonderful catsitter" , localisation: "6 rue du dragon, Paris", description:"Love cat since my childhood", user: quentin})
+
 
 cat_sitting_offer_anne_sophie = CatSittingOffer.create(
-  {title:"Catsitting is life!" , localisation: "Paris", description:"Love cat since my childhood", user: anne_sophie})
+  {title:"Catsitting is life!" , localisation: "3 boulevard Arago, Paris", description:"Love cat since my childhood", user: anne_sophie})
+
+cat_sitting_offer_anne_sophie1 = CatSittingOffer.create(
+  {title:"Catsitting is life!" , localisation: "6 rue Pascal, Paris", description:"Love cat since my childhood", user: anne_sophie})
 
 cat_sitting_offer_camille = CatSittingOffer.create(
-  {title:"Lovely house for a cat" , localisation: "Paris", description:"Love cat since my childhood", user: camille})
+  {title:"Lovely house for a cat" , localisation: "3 rue Dauphine, Paris", description:"Love cat since my childhood", user: camille})
+
+cat_sitting_offer_camille1 = CatSittingOffer.create(
+  {title:"Lovely house for a cat" , localisation: "3 avenue des gobelins, Paris", description:"Love cat since my childhood", user: camille})
+
+
 
 cat_sitting_offer_jean = CatSittingOffer.create(
   {title:"I really love cats" , localisation: "New-York", description:"Love cat since my childhood", user: jean})
 
-cat_sitting_offer_edouard = CatSittingOffer.create(
-  {title:"Looking for a cat friend" , localisation: "Lyon", description:"Love cat since my childhood", user: edouard})
-
-cat_sitting_offer_alice = CatSittingOffer.create(
-  {title:"I can talk to cats" , localisation: "Bordeaux", description:"Love cat since my childhood", user: alice})
-
-cat_sitting_offer_quentin1 = CatSittingOffer.create(
-  {title:"Wonderful catsitter" , localisation: "Dublin", description:"Love cat since my childhood", user: quentin})
-
-cat_sitting_offer_anne_sophie1 = CatSittingOffer.create(
-  {title:"Catsitting is life!" , localisation: "Tokyo", description:"Love cat since my childhood", user: anne_sophie})
-
-cat_sitting_offer_camille1 = CatSittingOffer.create(
-  {title:"Lovely house for a cat" , localisation: "Paris", description:"Love cat since my childhood", user: camille})
-
 cat_sitting_offer_jean1 = CatSittingOffer.create(
   {title:"I really love cats" , localisation: "Paris", description:"Love cat since my childhood", user: jean})
+
+cat_sitting_offer_edouard = CatSittingOffer.create(
+  {title:"Looking for a cat friend" , localisation: "Lyon", description:"Love cat since my childhood", user: edouard})
 
 cat_sitting_offer_edouard1 = CatSittingOffer.create(
   {title:"Looking for a cat friend" , localisation: "Londres", description:"Love cat since my childhood", user: edouard})
 
+cat_sitting_offer_alice = CatSittingOffer.create(
+  {title:"I can talk to cats" , localisation: "Bordeaux", description:"Love cat since my childhood", user: alice})
+
+
 cat_sitting_offer_alice1 = CatSittingOffer.create(
   {title:"I can talk to cats" , localisation: "Paris", description:"Love cat since my childhood", user: alice})
 
+
 urls1 = [
-  'https://s-media-cache-ak0.pinimg.com/originals/0e/17/71/0e1771711821d502667520aa116b5d3e.jpg',
-  'http://chrisleavins.typepad.com/chrisleavins/images/2008/01/12/formal_catportrait_walter_elizabeth.jpg',
-  'http://www.book-a-flat.com/images/paris-salon-2.jpg'
+  'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/people1_hhhztk.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche1_aebqn2.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat1_hnuwjy.jpg'
 ]
 
 urls2 = [
-  'http://www.dog-and-cat-design.com/2802-thickbox_default/griffoir-niche-en-carton-pour-chat-brochhaus-jnr.jpg',
-  'https://img.buzzfeed.com/buzzfeed-static/static/2014-09/29/17/enhanced/webdr10/enhanced-2230-1412025361-9.jpg',
-  'http://www.chicroomproperties.com/thumb/property-gallery/items/166/furnished-studio-flat-for-rent-mid-term-in-barcelona-gothic-2.jpg'
+  'http://res.cloudinary.com/dymvgezcn/image/upload/v1489761803/people2_ai5mgs.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche2_hixgiu.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat2_xwjied.jpg'
 ]
-
 urls3 = [
-  'https://archzine.fr/wp-content/uploads/2016/02/niche-pour-chat-maison-pour-chat-galet.jpg',
-  'http://justsomething.co/wp-content/uploads/2014/08/men-and-cats-11.jpg',
-  'http://cdn.homedsgn.com/wp-content/uploads/2014/06/Modern-Flat-in-Kyiv-04-850x566.jpg'
-
+ 'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/people3_qkvhli.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche3_gdy5bm.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat3_nokpee.jpg'
 ]
-
 urls4 = [
-  'https://archzine.fr/wp-content/uploads/2016/02/niche-pour-chat-maison-pour-chat-galet.jpg',
-  'https://img.buzzfeed.com/buzzfeed-static/static/2014-09/29/15/enhanced/webdr11/enhanced-23445-1412017320-11.jpg',
-  'http://cdn.homedsgn.com/wp-content/uploads/2014/06/Modern-Flat-in-Kyiv-04-850x566.jpg'
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/people4_foqrsx.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche4_pxyatx.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat4_vcxs8k.jpg'
 ]
-
 urls5 = [
-  'https://archzine.fr/wp-content/uploads/2016/02/niche-pour-chat-maison-pour-chat-galet.jpg',
-  'https://s-media-cache-ak0.pinimg.com/originals/5e/30/9f/5e309f4b980f7ece8b3346a4025ae0b1.jpg',
-  'http://cdn.homedsgn.com/wp-content/uploads/2014/06/Modern-Flat-in-Kyiv-04-850x566.jpg'
+  'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/people5_eotzug.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche5_rostxe.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat5_yftry0.jpg'
 ]
-
 urls6 = [
-  'https://archzine.fr/wp-content/uploads/2016/02/niche-pour-chat-maison-pour-chat-galet.jpg',
-  'http://www.lifewithcats.tv/wp-content/uploads/2016/07/awkward-5.jpg',
-  'http://cdn.homedsgn.com/wp-content/uploads/2014/06/Modern-Flat-in-Kyiv-04-850x566.jpg'
+  'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/people6_yw8jwe.jpg',
+ 'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760656/niche6_klnqyf.jpg',
+'http://res.cloudinary.com/dymvgezcn/image/upload/v1489760655/flat6_ulurbx.jpg'
 ]
 
 cat_sitting_offer_quentin.photo_urls = urls1
@@ -109,6 +112,13 @@ cat_sitting_offer_camille.photo_urls = urls3
 cat_sitting_offer_jean.photo_urls = urls4
 cat_sitting_offer_edouard.photo_urls = urls5
 cat_sitting_offer_alice.photo_urls = urls6
+
+cat_sitting_offer_quentin1.photo_urls = urls1
+cat_sitting_offer_anne_sophie1.photo_urls = urls2
+cat_sitting_offer_camille1.photo_urls = urls3
+cat_sitting_offer_jean1.photo_urls = urls4
+cat_sitting_offer_edouard1.photo_urls = urls5
+cat_sitting_offer_alice1.photo_urls = urls6
 
 
 booking_quentin = Booking.create!({start_date: Date.today , end_date: Date.today + 2.days, cat_sitting_offer: cat_sitting_offer_camille, user: quentin, status: "pending"})

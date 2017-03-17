@@ -3,13 +3,15 @@ class BookingsController < ApplicationController
     @cat_sitting_offer = CatSittingOffer.find(params[:cat_sitting_offer_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.user.first_name = user_params[:user][:first_name]
-    @booking.user.last_name = user_params[:user][:last_name]
+    if not @booking.user.first_name
+      @booking.user.first_name = user_params[:user][:first_name]
+      @booking.user.last_name = user_params[:user][:last_name]
+    end
     current_user.save
     @booking.cat_sitting_offer = @cat_sitting_offer
     @booking.status = "Pending"
     @booking.save
-    redirect_to cat_sitting_offers_path
+    redirect_to cat_sitting_offers_path, notice: "Your request has been taken into account, the cat sitter will review your request"
   end
 
   def update
