@@ -20,7 +20,7 @@
       <% else %>
         <%= image_tag 'avatar.png', :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-offer avatar-bordered" %>
       <% end %>
-      <p class="text-center" ><%= current_user.first_name%> </p>
+      <p class="text-center" ><%= @cat_sitting_offer.user.first_name%> </p>
     </div>
   </div>
 
@@ -36,6 +36,7 @@
     <%= link_to "Edit", edit_cat_sitting_offer_path(@cat_sitting_offer), class: "button" %>
     <%= link_to 'Delete', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
   <% else %>
+    <p></p>
     <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
   <% end %>
 </div>
