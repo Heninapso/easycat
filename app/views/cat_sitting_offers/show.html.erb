@@ -15,12 +15,12 @@
     </div>
 
   <div>
-    <% if current_user.photo? %>
+    <% if @cat_sitting_offer.user.photo? %>
         <%= cl_image_tag(@cat_sitting_offer.user.photo.path, :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-bordered") %>
       <% else %>
         <%= image_tag 'avatar.png', :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-offer avatar-bordered" %>
       <% end %>
-      <p class="text-center" ><%= current_user.first_name%> </p>
+      <p class="text-center" ><%= @cat_sitting_offer.user.first_name%> </p>
     </div>
   </div>
 
@@ -31,6 +31,19 @@
       </div>
     <% end %>
   </div>
+
+  <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
+    <%= hidden_field_tag 'user_id', @booking.user %>
+    <% if current_user.first_name %>
+      <%=  f.association :user do |c| %>
+        <%= c.input :first_name %>
+        <%= c.input :last_name %>
+      <% end %>
+    <% end %>
+    <%= f.input :start_date, as: :string, input_html: {class: "form-control date-pick"} %>
+    <%= f.input :end_date, as: :string, input_html: {class: "form-control date-pick"} %>
+    <%= f.submit "Book now", class: "btn btn-primary" %>
+  <% end %>
 
   <% if current_user == @cat_sitting_offer.user %>
     <%= link_to "Edit", edit_cat_sitting_offer_path(@cat_sitting_offer), class: "button" %>
