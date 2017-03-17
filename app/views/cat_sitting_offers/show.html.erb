@@ -25,10 +25,12 @@
   </div>
 
   <div class="row padded">
-    <% @cat_sitting_offer.photos.each do |photo| %>
-      <div class="col-xs-12 col-md-4">
-        <%= cl_image_tag photo.path, width: 250, height: 150, crop: :fill %>
-      </div>
+    <% if @cat_sitting_offer.photos? %>
+      <% @cat_sitting_offer.photos.each do |photo| %>
+        <div class="col-xs-12 col-md-4">
+          <%= cl_image_tag photo.path, width: 250, height: 150, crop: :fill %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
