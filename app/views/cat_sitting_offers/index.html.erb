@@ -12,7 +12,7 @@
 
           <% if cat_sitting_offer.photos? %>
             <div class="card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cat_sitting_offer.photos.first.path, width: 500, height: 1000 %>')">
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cat_sitting_offer.photos.first.path, crop: :fit %>')">
           <% else %>
             <div class="card"
                 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
@@ -27,7 +27,7 @@
               </div>
 
               <% if cat_sitting_offer.user.photo? %>
-                <%= cl_image_tag cat_sitting_offer.user.photo.path, class: "card-user avatar avatar-bordered"%>
+                <%= cl_image_tag cat_sitting_offer.user.photo.path,:width=>50, :height=>50, :gravity=>"auto", :crop=>"fill", class: "card-user avatar-bordered"%>
                 <%= link_to "", cat_sitting_offer_path(cat_sitting_offer), class: "card-link"  %>
               <% else %>
                 <%= image_tag 'avatar.png', class: "card-user avatar avatar-bordered"%>
