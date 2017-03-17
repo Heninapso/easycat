@@ -38,7 +38,7 @@
               <% @bookings.each do |booking| %>
                 <div class= "dashboard-card">
                   <div class="dashboard-card-child">
-                    <h3>Booking <b>#<%= booking.id %></b></h3>
+                    <h3>Booking <b>#<%= booking.id %></b> for <b><%= booking.cat_sitting_offer.user.first_name %> <%= booking.cat_sitting_offer.user.last_name %></b></h3>
                   </div>
                   <div class="dashboard-card-child">
                     <p><i class="fa fa-calendar" aria-hidden="true"></i> Start date : <b><%= booking.start_date %></b></p>
