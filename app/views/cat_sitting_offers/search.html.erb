@@ -39,13 +39,14 @@
               <div class="card"
                   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
             <% end %>
+              <div class="card-category">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> <%= cat_sitting_offer.localisation %>
+              </div>
               <div class="card-description">
                 <h2>
-                  <%= cat_sitting_offer.title %>
+                  " <%= cat_sitting_offer.title %> "
                 </h2>
-                <p>
-                  <%= cat_sitting_offer.localisation %>
-                </p>
+                  <i class="fa fa-user" aria-hidden="true"></i> <%= cat_sitting_offer.user.first_name %> <%= cat_sitting_offer.user.last_name %>
               </div>
               <% if cat_sitting_offer.user.photo? %>
                 <%= cl_image_tag cat_sitting_offer.user.photo.path,:width=>50, :height=>50, :gravity=>"auto", :crop=>"fill", class: "card-user avatar-bordered"%>
