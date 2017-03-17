@@ -42,14 +42,13 @@
     <% end %>
     <%= f.input :start_date, as: :string, input_html: {class: "form-control date-pick"} %>
     <%= f.input :end_date, as: :string, input_html: {class: "form-control date-pick"} %>
-    <%= f.submit "Book now", class: "btn btn-primary" %>
+    <%= f.submit "Book now", class: "navbar-wagon-button" %>
   <% end %>
 
   <% if current_user == @cat_sitting_offer.user %>
     <%= link_to "Edit", edit_cat_sitting_offer_path(@cat_sitting_offer), class: "button" %>
     <%= link_to 'Delete', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
   <% else %>
-    <p><%= link_to('Book this offer', new_cat_sitting_offer_booking_path(@cat_sitting_offer), class: "button") %></p>
     <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
   <% end %>
 </div>
