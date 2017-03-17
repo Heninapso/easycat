@@ -28,7 +28,11 @@
           <div class="col-12">
             <div class="tab-content" id="profile">
               <div class="avatar-dashboard">
-              <%= cl_image_tag current_user.photo.path, alt: "profile picture" %>
+              <% if current_user.photo? %>
+                <%= cl_image_tag current_user.photo.path, alt: "profile picture", class: "avatar-navbar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% else %>
+                <%= image_tag "avatar.png", alt: "profile picture", class: "avatar-navbar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% end %>
               </div>
               <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
               <p><b><%= current_user.email %></b></p>
