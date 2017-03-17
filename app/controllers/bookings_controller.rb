@@ -2,6 +2,9 @@ class BookingsController < ApplicationController
   def create
     @cat_sitting_offer = CatSittingOffer.find(params[:cat_sitting_offer_id])
     @booking = Booking.new(booking_params)
+
+    # @booking.start_date = params["booking"]["start_date"]
+    # @booking.end_date = params["booking"]["end_date"]
     @booking.user = current_user
     if not @booking.user.first_name
       @booking.user.first_name = user_params[:user][:first_name]
