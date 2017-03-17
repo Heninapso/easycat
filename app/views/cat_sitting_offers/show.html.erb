@@ -41,7 +41,6 @@
 
     <div class="form-inputs form-container ">
       <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
-        <%= hidden_field_tag 'user_id', @booking.user %>
         <% if not current_user.first_name %>
           <%=  f.association :user do |c| %>
             <%= c.input :first_name %>
