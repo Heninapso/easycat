@@ -10,7 +10,7 @@
           <div class="col-12">
             <div class="tabs">
               <a class="tab active" data-target="#profile">
-                <h3>My profile <i class="fa fa-user" aria-hidden="true"></i></i></h3>
+                <h3>My profile <i class="fa fa-user" aria-hidden="true"></i></h3>
               </a>
               <a class="tab" data-target="#bookings">
                 <h3>My bookings <i class="fa fa-calendar" aria-hidden="true"></i></h3>
@@ -98,21 +98,21 @@
                       <span><i class="fa fa-calendar" aria-hidden="true"></i> From <b><%= booking.start_date %></b> to <b><%= booking.end_date %></b></span>
                     </div>
 
-                        <% if booking.status == "accepted" %>
+                        <% if booking.status == "Accepted" %>
                           <p>accepted</p>
-                        <% elsif booking.status == "declined" %>
+                        <% elsif booking.status == "Declined" %>
                           <p>declined</p>
                         <% else %>
                             <%= simple_form_for booking do |f| %>
                               <div class="dashboard-card-child">
                                 <span><%= f.button :submit , "Accept", class:"button-accept" %></span>
                               </div>
-                              <% end %>
+                            <% end %>
                             <%= simple_form_for booking do |f| %>
                               <div class="dashboard-card-child">
                                 <span><%= f.button :submit , "Decline", class:"button-decline" %></span>
                               </div>
-                              <% end %>
+                            <% end %>
                         <% end %>
                   </div>
                 <hr>
