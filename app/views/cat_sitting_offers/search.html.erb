@@ -1,14 +1,11 @@
 <div class = "text-title">
   <h1>All the catsitters near you!</h1>
-  <div class="container-title">
-    <p>Have a look at all our amazing catsitters around the world! </p>
-      <div class="span-link">
-      <%= link_to 'See all catsitters!', cat_sitting_offers_path, class: "btn-large" %>
-    </div>
+  <div class="container-link">
+    <%= link_to 'See all catsitters!', cat_sitting_offers_path, class: "btn-large" %>
   </div>
 </div>
 <% if @cat_sitting_offers.length == 0 %>
-  <div class="sml-content">
+  <div class="container">
     <div class="span">
       <p>No catsitters yet around <%= @address %>....</p>
       <p>Search again! </p>
