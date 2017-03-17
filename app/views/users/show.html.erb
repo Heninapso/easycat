@@ -27,7 +27,9 @@
         <div class="row">
           <div class="col-12">
             <div class="tab-content" id="profile">
-              <%= image_tag current_user.photo.path, alt: "profile picture", class: "avatar-dashboard" %>
+              <div class="avatar-dashboard">
+              <%= cl_image_tag current_user.photo.path, alt: "profile picture" %>
+              </div>
               <p>Email : <%= current_user.email %></p>
               <p>Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>

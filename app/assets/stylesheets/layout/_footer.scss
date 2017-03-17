@@ -1,7 +1,12 @@
 #footer {
+  position:relative;
+  display:block;
+  bottom:0;
+  width:100%;
   background: $purple;
   padding: 10px 0;
   color: white;
+  bottom:0;
 }
 #footer p {
   margin-top: 10px;
