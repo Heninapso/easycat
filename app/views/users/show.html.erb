@@ -52,7 +52,7 @@
                 </div>
                 <hr>
               <% end %>
-              <%= link_to 'Add another booking', cat_sitting_offers_path %>
+              <%= link_to 'Add another booking', cat_sitting_offers_path, class: "navbar-wagon-button" %>
             </div>
             <div class="tab-content hidden" id="offers">
               <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
