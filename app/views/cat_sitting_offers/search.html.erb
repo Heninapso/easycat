@@ -1,9 +1,19 @@
 <div class = "text-title">
-  <h2>All the catsitters near you!</h2>
-  <div class="container-link">
-    <%= link_to 'See all catsitters!', cat_sitting_offers_path, class: "btn-large" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <h2>Make your choice!</h2>
+      </div>
+      <div class="col-xs-8">
+        <div class="container-link">
+          <div class="form-search">
+            <%= render '/pages/search_form' %>
+          </div>
+          <%= link_to 'See all', cat_sitting_offers_path, class: "button" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 <% if @cat_sitting_offers.length == 0 %>
   <div class="container">
     <div class="span">
@@ -16,7 +26,7 @@
   </div>
 <% else %>
   <div class="row">
-  <p>Your search for: <%= @address %></p>
+  <p>Results shown for: <b><%= @address %></b></p>
     <div class="col-xs-8" id="card-column">
       <div class="row">
         <% @cat_sitting_offers.each do |cat_sitting_offer| %>
@@ -29,13 +39,14 @@
               <div class="card"
                   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
             <% end %>
+              <div class="card-category">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> <%= cat_sitting_offer.localisation %>
+              </div>
               <div class="card-description">
                 <h2>
-                  <%= cat_sitting_offer.title %>
+                  " <%= cat_sitting_offer.title %> "
                 </h2>
-                <p>
-                  <%= cat_sitting_offer.localisation %>
-                </p>
+                  <i class="fa fa-user" aria-hidden="true"></i> <%= cat_sitting_offer.user.first_name %> <%= cat_sitting_offer.user.last_name %>
               </div>
               <% if cat_sitting_offer.user.photo? %>
                 <%= cl_image_tag cat_sitting_offer.user.photo.path,:width=>50, :height=>50, :gravity=>"auto", :crop=>"fill", class: "card-user avatar-bordered"%>
