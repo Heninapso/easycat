@@ -9,18 +9,18 @@
 <div class="offer-container  padded">
   <div class="flex-inline">
     <div>
-      <h2><%= @cat_sitting_offer.title %></h2>
-      <h3><%= @cat_sitting_offer.localisation %></h3>
-      <p>15€/jour</p>
+      <h2>" <%= @cat_sitting_offer.title %> "</h2>
+      <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  <%= @cat_sitting_offer.localisation %></h3>
+      <p><b>15€</b>/jour</p>
     </div>
 
   <div>
     <% if @cat_sitting_offer.user.photo? %>
         <%= cl_image_tag(@cat_sitting_offer.user.photo.path, :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-bordered") %>
       <% else %>
-        <%= image_tag 'avatar.png', :width=>200, :height=>200, :gravity=>"auto", :crop=>"fill", class: "avatar-offer avatar-bordered" %>
+        <%= image_tag 'avatar.png', class: "avatar-dashboard" %>
       <% end %>
-      <p class="text-center" ><%= @cat_sitting_offer.user.first_name%> </p>
+      <h2 class="text-center" ><i class="fa fa-user" aria-hidden="true"></i> <%= @cat_sitting_offer.user.first_name%> </h2>
     </div>
   </div>
 
