@@ -30,7 +30,7 @@
               <div class="avatar-dashboard">
               <%= cl_image_tag current_user.photo.path, alt: "profile picture" %>
               </div>
-              <p><b><%= current_user.first_name %> <%= current_user.last_name %></b></p>
+              <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
               <p><b><%= current_user.email %></b></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>
             </div>
