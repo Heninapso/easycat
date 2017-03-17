@@ -25,19 +25,20 @@
   </div>
 
   <div class="row padded">
-    <% @cat_sitting_offer.photos.each do |photo| %>
-      <div class="col-xs-12 col-md-4">
-        <%= cl_image_tag photo.path, width: 250, height: 150, crop: :fill %>
-      </div>
+    <% if @cat_sitting_offer.photos? %>
+      <% @cat_sitting_offer.photos.each do |photo| %>
+        <div class="col-xs-12 col-md-4">
+          <%= cl_image_tag photo.path, width: 250, height: 150, crop: :fill %>
+        </div>
+      <% end %>
     <% end %>
   </div>
-
-
 
   <% if current_user == @cat_sitting_offer.user %>
     <%= link_to "Edit", edit_cat_sitting_offer_path(@cat_sitting_offer), class: "button" %>
     <%= link_to 'Delete', cat_sitting_offer_path(@cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
   <% else %>
+
     <div class="form-inputs form-container ">
       <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
         <%= hidden_field_tag 'user_id', @booking.user %>
@@ -52,6 +53,7 @@
         <%= f.submit "Book now", class: "button" %>
       <% end %>
     </div>
+
     <p><%= link_to('Go back to the list of available cat sitters', cat_sitting_offers_path, class: "link_orange") %></p>
   <% end %>
 </div>
