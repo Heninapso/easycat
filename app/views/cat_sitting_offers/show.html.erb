@@ -34,17 +34,19 @@
     <% end %>
   </div>
 
-  <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
-    <%= hidden_field_tag 'user_id', @booking.user %>
-    <% if current_user.first_name %>
-      <%=  f.association :user do |c| %>
-        <%= c.input :first_name %>
-        <%= c.input :last_name %>
+  <%  if @cat_sitting_offer.user != current_user %>
+    <%= simple_form_for [@cat_sitting_offer, @booking] do |f| %>
+      <%= hidden_field_tag 'user_id', @booking.user %>
+      <% if current_user.first_name %>
+        <%=  f.association :user do |c| %>
+          <%= c.input :first_name %>
+          <%= c.input :last_name %>
+        <% end %>
       <% end %>
+      <%= f.input :start_date, as: :string, input_html: {class: "form-control date-pick"} %>
+      <%= f.input :end_date, as: :string, input_html: {class: "form-control date-pick"} %>
+      <%= f.submit "Book now", class: "btn btn-primary" %>
     <% end %>
-    <%= f.input :start_date, as: :string, input_html: {class: "form-control date-pick"} %>
-    <%= f.input :end_date, as: :string, input_html: {class: "form-control date-pick"} %>
-    <%= f.submit "Book now", class: "btn btn-primary" %>
   <% end %>
 
   <% if current_user == @cat_sitting_offer.user %>

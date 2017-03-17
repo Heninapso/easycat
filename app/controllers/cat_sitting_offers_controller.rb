@@ -28,17 +28,14 @@ class CatSittingOffersController < ApplicationController
 
   def new
     @cat_sitting_offer = CatSittingOffer.new
-    if not current_user.first_name
-      current_user.first_name = user_params[:user][:first_name]
-      current_user.last_name = user_params[:user][:last_name]
+    if !current_user
+      redirect_to new_user_registration_path
     end
   end
 
   def create
     @cat_sitting_offer = CatSittingOffer.new(cat_sitting_offer_params)
     @cat_sitting_offer.user = current_user
-    @cat_sitting_offer.user.first_name = user_params[:user][:first_name]
-    @cat_sitting_offer.user.last_name = user_params[:user][:last_name]
     current_user.save
     if @cat_sitting_offer.save
       redirect_to cat_sitting_offer_path(@cat_sitting_offer), notice: 'Your cat sitting offer has been created!'
