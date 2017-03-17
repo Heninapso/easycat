@@ -52,7 +52,7 @@
                 </div>
                 <hr>
               <% end %>
-              <%= link_to 'Add another booking', cat_sitting_offers_path, class: "navbar-wagon-button" %>
+              <%= link_to 'Add another booking', cat_sitting_offers_path, class: "button" %>
             </div>
             <div class="tab-content hidden" id="offers">
               <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
@@ -68,7 +68,7 @@
                   </div>
                   <div class="dashboard-card-child">
                     <%= link_to edit_cat_sitting_offer_path(cat_sitting_offer) do %>
-                      <p>Edit this offer</p>
+                      <span>Edit this offer</span>
                     <% end %>
                     <%= link_to 'Delete this offer', cat_sitting_offer_path(cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' } %>
                   </div>
