@@ -30,15 +30,15 @@
               <div class="avatar-dashboard">
               <%= cl_image_tag current_user.photo.path, alt: "profile picture" %>
               </div>
-              <p>Email : <%= current_user.email %></p>
-              <p>Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
+              <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+              <p><b><%= current_user.email %></b></p>
               <%= link_to "Edit my profile", edit_user_path(current_user), class: "button" %>
             </div>
             <div class="tab-content hidden" id="bookings">
               <% @bookings.each do |booking| %>
                 <div class= "dashboard-card">
                   <div class="dashboard-card-child">
-                    <h3>Booking <b>#<%= booking.id %></b></h3>
+                    <h3>Booking <b>#<%= booking.id %></b> for <b><%= booking.cat_sitting_offer.user.first_name %> <%= booking.cat_sitting_offer.user.last_name %></b></h3>
                   </div>
                   <div class="dashboard-card-child">
                     <p><i class="fa fa-calendar" aria-hidden="true"></i> Start date : <b><%= booking.start_date %></b></p>
@@ -52,7 +52,7 @@
                 </div>
                 <hr>
               <% end %>
-              <%= link_to 'Add another booking', cat_sitting_offers_path, class: "navbar-wagon-button" %>
+              <%= link_to 'Add another booking', cat_sitting_offers_path, class: "button" %>
             </div>
             <div class="tab-content hidden" id="offers">
               <% current_user.cat_sitting_offers.each do |cat_sitting_offer| %>
@@ -68,7 +68,7 @@
                   </div>
                   <div class="dashboard-card-child">
                     <%= link_to edit_cat_sitting_offer_path(cat_sitting_offer) do %>
-                      <p>Edit this offer</p>
+                      <span>Edit this offer</span>
                     <% end %>
                     <%= link_to 'Delete this offer', cat_sitting_offer_path(cat_sitting_offer), method: :delete, data: { confirm: 'Are you sure?' } %>
                   </div>
